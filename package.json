@@ -1,0 +1,23 @@
+{
+  "name": "kuehlschrank-managment-pb-final-projekt",
+  "version": "1.0.0",
+  "description": "## Einleitung Dies ist das Abschlussprojekt für das Programming-Basics Modul. Es enthält neben dieser README, die die Aufgabe beschreibt, noch einige zusätzliche Ordner.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabriella1991/Kuehlschrank-Managment-pb-final-projekt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gabriella1991/Kuehlschrank-Managment-pb-final-projekt/issues"
+  },
+  "homepage": "https://github.com/Gabriella1991/Kuehlschrank-Managment-pb-final-projekt#readme"
+}
