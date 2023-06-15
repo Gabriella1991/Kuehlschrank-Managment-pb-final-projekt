@@ -1,25 +1,3 @@
-//ANCHOR - AUFGABESTELLUNG/* 
-/*     Dies ist die haupt Javascript Datei, die im HTML eingebunden ist.
-    Hierin sollten alle Nutzer - Interaktionen geregelt werden.
-
-    Hierin sollten möglichst keine Datenstrukturdaten gespeichert werden,
-    dafür sind die beiden Klassen 'Fridge' und 'Product' vorgesehen.
-    Die nötigen Dateien für die Fridge - und Productklasse sind bereits eingebunden,
-    so dass von hier aus von ihnen Gebrauch gemacht werden kann.
-
-    Es empfiehlt sich das Befüllen bzw.Erzeugen der dynamischen GUI Elemente
-    in einer größeren Methode zu definieren, die sich an den in der Datenstruktur hinterlegten Daten orientiert.
-    So kann man diese Methode bei jeder Änderung der Daten immer wieder aufrufen 
-    und muss sich nicht um das Hinzufügen, Ändern oder Entfernen einzelner HTML - Elemente kümmern.
-
-    Die Datei enthält bereits eine Methode zum Erzeugen von Product - Cards.
-    Sie liefert das fertige und mit Daten befüllte HTML - Element zurück.
-
-    Außerdem hat Datei einige nötige Referenzen auf HTML - Elemente der GUI.
-    Diese können bereits genutzt werden.
-    Weitere nötige Referenzen auf HTML - Elemente der GUI können nach demselben Muster per ID - Zugriff gemacht werden.
-
- */
 //SECTION - IMPORTS UND HILFVARIABLEN // Imports der Kühlschrank Klasse aus der externen Datei
 import Fridge from "./fridge.js";
 // Imports der Produkt Klasse aus der externen Datei
@@ -30,9 +8,6 @@ import Product from "./product.js";
 const ONE_DAY = 1000 * 60 * 60 * 24;
 /* -------------------------------------- */
 //!SECTION
-
-
-
 
 //SECTION  - LINKS renderStatusNumbers- SPANS - ZUM ANZEIGEN DER WARENBESTAND
 //NOTE -  Render-Funktion für den Kühlschrank-Status-Bereich
@@ -57,21 +32,6 @@ function renderStatusNumbers(fridge) {
     biggestProductSpan.innerText = fridge.biggestProduct();
 }
 //!SECTION
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //SECTION - MITTE -KLICK EVENTS - GUI REFERENZEN - ADD-BUTTON -------------------------------------------------------------------------------------------------------------------------//
 const fridgeProductsContainer = document.querySelector('#fridge-products-container');//NOTE - Referenz auf Produkte-Container
@@ -100,21 +60,6 @@ addProductSubmitBtn.addEventListener('click', function (evt) {
         renderStatusNumbers(fridge);
     }
 });
-/* 
-    Funktion zum Erstellen einer Produktcard für den Kühlschrank.
-    Sie erhält als Parameter
-    - Den Namen des Produkts (productName)
-    - Das Volumen des Produkts (productVolume), also den Platz, den es innerhalb des Kühlschranks einnimmt
-    - Das Ablaufdatum des Produkts (productExpDate)
-    - Ein boole'scher Indikator dafür, ob das Produkt abgelaufen ist (isExpired)
-    - Eine Callback-Funktion für Behandlung des Klicks auf den Löschknopf der jeweiligen Card (deleteCallback)
-        Sollte dieses Callback keiner Funktion entsprechen (oder nicht mitgeliefert werden) erscheint eine Fehlermeldung in der Konsole.
-
-    Als Rückgabewert (return) liefert sie das fertige HTML-Element mit allen übergebenen Informationen.
-*/
-
-
-
 
 //SECTION - MITTE -createNewProductCard NEUE PRODUKTKARTE ERZEUGEN -------------------------------------------------------------------------------------------------------------//
 function createNewProductCard(productName, productVolume, productExpDate, isExpired, deleteCallback) {
@@ -202,18 +147,18 @@ function createNewProductCard(productName, productVolume, productExpDate, isExpi
 
 //SECTION MITTE-renderProducts RENDER FÜR PRODUKTE -------------------------------------------------------------------------------------------------------------//
 function renderProducts(fridge) {
-    fridgeProductsContainer.replaceChildren();       //NOTE - //! HACK: Dadurch werden alle Kind-Elemente mit NICHTS ersetzt also sozusagen entfernt.//(Die Element.replaceChildren()Methode ersetzt die vorhandenen Kinder von a Nodedurch eine angegebene neue Gruppe von Kindern. Dies können Strings oder NodeObjekte sein.)
-    fridge.products.forEach((product,index) => {     //NOTE - alle Produkte durchlaufen...
+    fridgeProductsContainer.replaceChildren();       // //! HACK: Dadurch werden alle Kind-Elemente mit NICHTS ersetzt also sozusagen entfernt.//(Die Element.replaceChildren()Methode ersetzt die vorhandenen Kinder von a Nodedurch eine angegebene neue Gruppe von Kindern. Dies können Strings oder NodeObjekte sein.)
+    fridge.products.forEach((product,index) => {     //alle Produkte durchlaufen...
 
-        let today = new Date()                      //NOTE - Variable für Heute erstellen
-        today.setHours(0, 0, 0, 0)                  //NOTE - // Instanz auf 00:00:00 Uhr setzen
+        let today = new Date()                      // Variable für Heute erstellen
+        today.setHours(0, 0, 0, 0)                  // Instanz auf 00:00:00 Uhr setzen
         let isExpired = ((today - product.ablaufsdatum) / ONE_DAY) > 3;// Abgelaufene Produkte sind = heute(3.) - 15. / 1Tag größer als 3 ....
         
         let productCard = createNewProductCard(product.name, product.produktvolumen, product.ablaufsdatum, isExpired, () => {   //NOTE - neue Produktkarte erstellen/erzeugen (als parameter die Details angegeben,wie name. Produktvolumen Ablaufdatum und ob es schon abgelaufen ist)
             
-            fridge.löschEinzelnButton(index,1);     //NOTE -  Entferne das Produkt anhand des Index aus dem Array in der Fridge-Instanz
-            renderProducts(fridge)                  //NOTE -  Rufe die allgemeine Render-Funktion auf, um neuen Zustand in der GUI darzustellen
-            renderStatusNumbers(fridge);            //NOTE -  Rufe die allgemeine Render-Funktion auf, um neuen Zustand in der GUI darzustellen
+            fridge.löschEinzelnButton(index,1);     //  Entferne das Produkt anhand des Index aus dem Array in der Fridge-Instanz
+            renderProducts(fridge)                  // Rufe die allgemeine Render-Funktion auf, um neuen Zustand in der GUI darzustellen
+            renderStatusNumbers(fridge);            // Rufe die allgemeine Render-Funktion auf, um neuen Zustand in der GUI darzustellen
               
         });
 

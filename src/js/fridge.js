@@ -4,8 +4,7 @@
     Sollte beim Versuch ein neues Produkt hinzuzufügen das maximal zugelassene Volumen überschritten werden,
     sollte das neue Produkt nicht hinzugefügt werden.
     Zur Vereinfachung ist das Volumen in der imaginären Einheit VU (Volume-Unit) zu behandeln.
-
-    Desweiteren sollte die Klasse über einen Speicher für im Kühlschrank eingelagerte Produkte verfügen.
+    -Desweiteren sollte die Klasse über einen Speicher für im Kühlschrank eingelagerte Produkte verfügen.
 
     Der Kühlschrank-Klasse müssen noch Instanz-Methoden beigefügt werden.
     Folgende Methoden sollten auf jeden Fall enthalten sein:
