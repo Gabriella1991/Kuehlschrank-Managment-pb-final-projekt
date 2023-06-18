@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node /home/dci-student/Workspace/DCI/module/Kühlschrank-Managment-app Github/Kuehlschrank-Managment-pb-final-projekt/package.json"
+    "start": "main.js"
   },
   "repository": {
     "type": "git",
